@@ -31,6 +31,7 @@ absence::
  python binCrisp.py findcr -d GenomeDir/ OutputFileName
 
 binCrisp output will include;
+
     - <outputname> (text report from binCrisp itself, this defines the CRISPR sequence
       attached to each ID number in the figure at the bottom.)
     - <outputname>.txt (text report of output from pilercr)
@@ -60,6 +61,7 @@ This script should be run from the runex folder in the parent binCrisp dir.
 This script will check Dependencies, format input files, and run binCrisp.py
 
 binCrisp output will include:
+
 - example (text report from binCrisp itself, this defines the CRISPR sequence
   attached to each ID number in the figure at the bottom.)
 - example.txt (text report of output from pilercr)
