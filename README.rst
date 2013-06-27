@@ -1,4 +1,4 @@
-BINCRISP
+BinCrisp
 ========
 
 binCrisp is a simple script to detect CRISPR sequences from whole genome 
@@ -33,16 +33,16 @@ absence.
 USAGE: python binCrisp.py findcr -d GenomeDir/ OutputFileName
 
 binCrisp output will include:
-    * <outputname> (text report from binCrisp itself, this defines the CRISPR sequence
+    - <outputname> (text report from binCrisp itself, this defines the CRISPR sequence
 	attached to each ID number in the figure at the bottom.)
-    * example.txt (text report of output from pilercr)
-    * example.svg (SVG Figure with a matrix of presence and absence of unique
+    - example.txt (text report of output from pilercr)
+    - example.svg (SVG Figure with a matrix of presence and absence of unique
       CRISPR sequence.)
 
 See USAGE i.e. "python binCrisp.py findcr -h" for optional parameters.
 
 
-WORKED EXAMPLE
+Worked Example
 ==============
 The runex directory has a test case to check if binCrisp is running correctly.
 Dependencies include: 
