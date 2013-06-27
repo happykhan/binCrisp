@@ -68,6 +68,9 @@ binCrisp output will include:
 - example.svg (SVG Figure with a matrix of presence and absence of unique CRISPR
   sequence.)
 
+.. image:: images/example.png
+
+
 Total Runtime: ~3 minutes. 
 
 Licence
