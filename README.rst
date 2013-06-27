@@ -22,18 +22,20 @@ genomes you wish to use and an file name to name all the output.
 
 It combines all genomes sequences in input directory and it runs pilercr from the path.
 The results from pilercr are summarised and used to draw and presence absence matrix as
-svg using svgwrite.::
+svg using svgwrite::
 
 USAGE: python binCrisp.py findcr GenomeDir/ OutputFileName
+
 The -d or --draw2 flag will space out CRISPR results into a grid to easily show presence/
-absence.::
+absence::
+
 USAGE: python binCrisp.py findcr -d GenomeDir/ OutputFileName
 
 binCrisp output will include;
     - <outputname> (text report from binCrisp itself, this defines the CRISPR sequence
-	attached to each ID number in the figure at the bottom.)
-    - example.txt (text report of output from pilercr)
-    - example.svg (SVG Figure with a matrix of presence and absence of unique
+      attached to each ID number in the figure at the bottom.)
+    - <outputname>.txt (text report of output from pilercr)
+    - <outputname>.svg (SVG Figure with a matrix of presence and absence of unique
       CRISPR sequence.)
 
 See USAGE i.e. "python binCrisp.py findcr -h" for optional parameters.
@@ -47,14 +49,14 @@ Dependencies include:
     * pilercr must be installed and on PATH: http://www.drive5.com/pilercr/
     * svgwrite: https://pypi.python.org/pypi/svgwrite
 
-binCrisp-Example.py is a quick example test of the binCrisp script.
-Just run 'python binCrisp-Example.py -v'. 
+binCrisp-Example.py is a quick example test of the binCrisp script. It requires
+reference genes and remote file list. (Default: fas-loc in runex dir).
+Just run::
 
-It requires reference genes and remote file list. (Default: fas-loc in runex dir).
+'python binCrisp-Example.py -v'
 
 This script runs an example case for the binCrisp script, based off 11 E. coli
 genomes (& E. fergusonii) downloaded from a remote server (listed in fas-loc).
-
 This script should be run from the runex folder in the parent binCrisp dir.
 This script will check Dependencies, format input files, and run binCrisp.py
 
