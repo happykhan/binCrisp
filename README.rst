@@ -66,7 +66,7 @@ binCrisp output will include:
   attached to each ID number in the figure at the bottom.)
 - example.txt (text report of output from pilercr)
 - example.svg (SVG Figure with a matrix of presence and absence of unique CRISPR
-  sequence.)
+  sequence.) [Shown below]
 
 .. image:: images/example.png
 
