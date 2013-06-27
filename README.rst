@@ -32,11 +32,11 @@ absence::
 
 binCrisp output will include;
 
-- <outputname> (text report from binCrisp itself, this defines the CRISPR sequence
-attached to each ID number in the figure at the bottom.)
+- <outputname> (text report from binCrisp itself, this defines the CRISPR sequence 
+  attached to each ID number in the figure at the bottom.)
 - <outputname>.txt (text report of output from pilercr)
-- <outputname>.svg (SVG Figure with a matrix of presence and absence of unique
-CRISPR sequence.)
+- <outputname>.svg (SVG Figure with a matrix of presence and absence of unique 
+  CRISPR sequence.)
 
 See USAGE i.e. "python binCrisp.py findcr -h" for optional parameters.
 
