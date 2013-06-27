@@ -17,22 +17,19 @@ binCrisp has one module (at the moment): findcr
 
 findcr
 ------
-findcr is the main module of the script. 
-It requires a directory with all the genomes you wish to use and an file name
-to name all the output. 
+findcr is the main module of the script. It requires a directory with all the 
+genomes you wish to use and an file name to name all the output. 
 
 It combines all genomes sequences in input directory and it runs pilercr from the path.
 The results from pilercr are summarised and used to draw and presence absence matrix as
-svg using svgwrite.
+svg using svgwrite.::
 
 USAGE: python binCrisp.py findcr GenomeDir/ OutputFileName
-
 The -d or --draw2 flag will space out CRISPR results into a grid to easily show presence/
-absence. 
-
+absence.::
 USAGE: python binCrisp.py findcr -d GenomeDir/ OutputFileName
 
-binCrisp output will include:
+binCrisp output will include;
     - <outputname> (text report from binCrisp itself, this defines the CRISPR sequence
 	attached to each ID number in the figure at the bottom.)
     - example.txt (text report of output from pilercr)
@@ -63,15 +60,14 @@ This script will check Dependencies, format input files, and run binCrisp.py
 
 binCrisp output will include:
     * example (text report from binCrisp itself, this defines the CRISPR sequence
-	attached to each ID number in the figure at the bottom.)
+      attached to each ID number in the figure at the bottom.)
     * example.txt (text report of output from pilercr)
     * example.svg (SVG Figure with a matrix of presence and absence of unique
       CRISPR sequence.)
 
 Total Runtime: ~3 minutes. 
 
-
-LICENCE
+Licence
 =======
 Nabil-Fareed Alikhan <n.alikhan@uq.edu.au>. (C) 2013.
 
