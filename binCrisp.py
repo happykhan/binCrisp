@@ -98,9 +98,8 @@ def findcr(args):
                         outfile.write(infile.read())
     # Run pilercr over temp.fna
     try: 
-        pass
-  #      proc = subprocess.Popen(['pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
-  #      print proc.communicate()
+       proc = subprocess.Popen(['pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
+       print proc.communicate()
     except OSError:
         proc = subprocess.Popen(['bin/pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
         print proc.communicate()
