@@ -11,6 +11,9 @@ Dependencies include:
 - svgwrite: https://pypi.python.org/pypi/svgwrite
 
 Be sure these are installed and on your path. See USAGE for optional parameters.
+Easiest way to set up svgwrite is with pip:
+
+ pip install -r requirements.txt 
 
 binCrisp has one module (at the moment): findcr
 

@@ -49,6 +49,9 @@ See USAGE i.e. "python binCrisp.py findcr -h" for optional parameters.
 ### CHANGE LOG ### 
 2013-06-27 Nabil-Fareed Alikhan <n.alikhan@uq.edu.au>
     * Initial Release
+2016-06-12 Nabil-Fareed Alikhan <n-f.alikhan@warwick.ac.uk>
+    * Added Pilercr binaries to bin     
+    * Fixes for issue #1
 """
 import sys, os, traceback, argparse, operator
 import time, subprocess, re
@@ -94,8 +97,13 @@ def findcr(args):
                     with open(dooz) as infile:
                         outfile.write(infile.read())
     # Run pilercr over temp.fna
-    proc = subprocess.Popen(['pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
-    print proc.communicate()
+    try: 
+        pass
+  #      proc = subprocess.Popen(['pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
+  #      print proc.communicate()
+    except OSError:
+        proc = subprocess.Popen(['bin/pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
+        print proc.communicate()
     # Parse pilercr results
     res_handle = open(args.output +'.txt','r')
     SPACEDICT = {}
@@ -120,13 +128,13 @@ def findcr(args):
                 doop += a + ' ' 
             SPACEARRAY = ["Array " + arraycount + ' '+ doop]
             
-        elif len(f.split()) ==  7 and cont :
-            if re.match('[ATGCatgc]+', f.split()[6]):
+        elif len(f.split()) >=  6 and cont :
+            if re.match('[ATGCatgc]+', f.split()[-1]):
                 spacers_out.write( f.strip() + '\n')
-                if not SPACEDICT.has_key(f.split()[6]):
-                    SPACEDICT[f.split()[6]] = len(SPACEDICT) + 1 
-                SPACEARRAY.append(SPACEDICT[f.split()[6]])
-                allSpace.append('$' + f.split()[6] + '\n')
+                if not SPACEDICT.has_key(f.split()[-1]):
+                    SPACEDICT[f.split()[-1]] = len(SPACEDICT) + 1 
+                SPACEARRAY.append(SPACEDICT[f.split()[-1]])
+                allSpace.append('$' + f.split()[-1] + '\n')
     spacers_out.write('\nALL DETECTED SPACER SEQUENCES\n')
     for f in allSpace:
         spacers_out.write( f)
@@ -223,15 +231,8 @@ if __name__ == '__main__':
         start_time = time.time()
         desc = __doc__.split('\n\n')[1].strip()
         parser = argparse.ArgumentParser(description=desc,epilog=epi)
-        # EXAMPLE OF BOOLEAN FLAG: verbose
         parser.add_argument ('-v', '--verbose', action='store_true', default=False, help='verbose output')
         parser.add_argument('--version', action='version', version='%(prog)s ' + __version__)
-        # EXAMPLE OF command line variable: 'output'
-        # EXAMPLE OF POSITIONAL ARGUMENT
-#        parser.add_argument ('arg1', action='store', type=int, help='First positional argument (INT)')
- #       parser.add_argument ('arg2', action='store', help='2nd positional argument (STRING)')
-        # EXAMPLE OF NESTED PARAMETERS
-        
         subparsers = parser.add_subparsers(help='commands')
         find_parser = subparsers.add_parser('findcr', help='Locates CRISPRS given a dir')
         find_parser.add_argument('dir', action='store', help='Directory of genomes')
@@ -245,8 +246,8 @@ if __name__ == '__main__':
 #        cmp_parser.set_defaults(func=cmpcr)
         find_parser.set_defaults(func=findcr)
         args = parser.parse_args()
-        args.func(args)
         if args.verbose: print "Executing @ " + time.asctime()
+        args.func(args)
         main()
         if args.verbose: print "Ended @ " + time.asctime()
         if args.verbose: print 'total time in minutes:',
