@@ -98,8 +98,8 @@ def findcr(args):
                         outfile.write(infile.read())
     # Run pilercr over temp.fna
     try: 
-       proc = subprocess.Popen(['pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
-       print proc.communicate()
+        proc = subprocess.Popen(['pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
+        print proc.communicate()
     except OSError:
         proc = subprocess.Popen(['bin/pilercr', '-noinfo', '-in', 'temp.fna', '-out', args.output +'.txt' ])
         print proc.communicate()
@@ -135,6 +135,7 @@ def findcr(args):
                 SPACEARRAY.append(SPACEDICT[f.split()[-1]])
                 allSpace.append('$' + f.split()[-1] + '\n')
     spacers_out.write('\nALL DETECTED SPACER SEQUENCES\n')
+
     for f in allSpace:
         spacers_out.write( f)
     spacers_out.write('\nSPACER SEQUENCE CORRESPONDING TO SPACER ID IN FIGURE\n')
